@@ -8,7 +8,10 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-import {toast} from "sonner";
+import { toast } from "sonner";
+
+import {useRouter} from "next/navigation";
+
 import FormField from "@/components/FormField";
 
 
@@ -22,6 +25,7 @@ const authFormSchema = (type: FormType) => {
 }
 
 const AuthForm = ( { type }: { type: FormType } ) => {
+    const router = useRouter();
     const formSchema = authFormSchema(type);
 
     // 1. Define your form.
@@ -38,9 +42,11 @@ const AuthForm = ( { type }: { type: FormType } ) => {
     function onSubmit(values: z.infer<typeof formSchema>) {
         try {
             if (type === 'sign-up') {
-                console.log('SIGN UP', values);
+                toast.success('Account created successfully. Please sign in.')
+                router.push('/sign-in')
             } else {
-                console.log('SIGN IN', values)
+                toast.success('Logged in successfully.')
+                router.push('/')
             }
         } catch (error) {
             console.log(error);
