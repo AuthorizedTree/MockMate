@@ -9,7 +9,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import {toast} from "sonner";
-
+import FormField from "@/components/FormField";
 
 
 const authFormSchema = (type: FormType) => {
@@ -66,9 +66,32 @@ const AuthForm = ( { type }: { type: FormType } ) => {
                   
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
-                        {!isSignIn && <p>Name</p>}
-                        <p>Email</p>
-                        <p>Password</p>
+                        {!isSignIn && (
+                            <FormField 
+                                control={form.control} 
+                                name="name" 
+                                label="Username" 
+                                placeholder="Your Name"
+                                description = "This is your public display name."
+                                type = "text"
+                            />
+                        )}
+                        <FormField 
+                                control={form.control} 
+                                name="email" 
+                                label="Email" 
+                                placeholder="Your Email Address"
+                                description = ""
+                                type = "email"
+                        />
+                        <FormField 
+                                control={form.control} 
+                                name="password" 
+                                label="Password" 
+                                placeholder="Enter your password"
+                                description =""
+                                type = "password"
+                        />
 
 
                         <Button className="btn" type="submit">{isSignIn ? 'Sign In' : 'Create an Account'}</Button>
