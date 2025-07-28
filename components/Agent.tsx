@@ -129,15 +129,6 @@ const Agent = ( { userName, userId, type, interviewId, questions }: AgentProps )
 
     const isCallInactiveOrFinished = callStatus === CallStatus.INACTIVE || callStatus === CallStatus.FINISHED;
 
-    /*const callStatus = CallStatus.FINISHED;
-    const isSpeaking = true;
-    const messages = [
-        'Whats your name?',
-        'My name is John Doe, nice to meet you!'
-    ];
-    const lastMessage = messages[messages.length - 1];
-    */
-
     return (
         <>
             <div className="call-view">
@@ -184,7 +175,7 @@ const Agent = ( { userName, userId, type, interviewId, questions }: AgentProps )
                 )}
             </div>
         </>
-    )
+    );
 }
 
 export default Agent;
