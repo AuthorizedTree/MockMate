@@ -56,7 +56,7 @@ const Page = async () => {
                         hasUpcomingInterviews ? (
                             latestInterviews?.map((interview) => (
                                 <InterviewCard {...interview} key={interview.id}/>
-                            ))) : (<p>There are not new interviews available.</p>)
+                            ))) : (<p>There are no new interviews available.</p>)
                     }
                 </div>
             </section>
