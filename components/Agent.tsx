@@ -117,31 +117,6 @@ const Agent = ( { userName, userId, type, interviewId, questions }: AgentProps )
                 serverMessages: []
             })
         }
-
-/*
-        if (type === 'generate') {
-            await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
-                variableValues: {
-                    username: userName,
-                    userid: userId,
-                }
-            })
-        } else {
-            let formattedQuestions = '';
-
-            if (questions) {
-                formattedQuestions = questions
-                    .map((question) => `- ${question}`)
-                    .join('\n');
-            }
-
-            await vapi.start(interviewer, {
-                variableValues: {
-                    questions: formattedQuestions,
-                }
-            })
-        }
-*/
     }
 
     const handleDisconnect = async () => {
