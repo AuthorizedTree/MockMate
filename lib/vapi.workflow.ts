@@ -22,8 +22,8 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
       "type": "conversation",
       "metadata": {
         "position": {
-          "x": -568.4508621419229,
-          "y": -342.79479540681785
+          "x": -1020.5129611613509,
+          "y": -81.30789499361936
         }
       },
       "prompt": "Ask the following questions one by one; let the user answer each one before asking the next question.\n\nAsk the user the role they are interviewing for (examples: frontend, backend, fullstack, mobile, devops, cloud, embedded, quality assurance, artificial intelligence, video game, etc.). These are not the only options, but examples of what the user might say.\n\nAsk the user the job experience level (examples: entry level software engineer, junior software engineer, senior software engineer, etc.). These are not the only options, but examples of what the user might say.\n\nAsk the user about the techstack they would like to be tested on. (examples: NumPy, Pandas, Matplotlib, TensorFlow, PyTorch, Scikit-learn, Requests, Beautiful Soup, D3.js, Lodash, OpenCV, React, Angular, Vue.js, jQuery, Node.js, Express.js, Django, Flask, Ruby on Rails, Laravel, Spring Boot, .NET Core/ASP.NET, Keras, Phoenix, Bootstrap, JDBC, SQLAlchemy, psycopg2, Mongoose, moment.js, datetime, JUnit, pytest, Jest, Serde, JSON, etc.). These are not the only options, but examples of what the user might say.\n\nAsk the user the type of interview they want (behavioural, technical, or mixed) . These are the only options, so when you ask this questions ask it in a way where you make it clear to the user that these are the 3 possible answers.\n\nAsk the user the number of questions they would like to be asked.\n",
@@ -95,37 +95,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         }
       },
       "tool": {
-        "type": "apiRequest",
-        "function": {
-          "name": "api_request_tool",
-          "description": "API request tool",
-          "parameters": {
-            "type": "object",
-            "properties": {},
-            "required": []
-          }
-        },
-        "messages": [
-          {
-            "type": "request-start",
-            "content": "Please hold on. A request is being sent to the app.",
-            "blocking": true
-          },
-          {
-            "type": "request-complete",
-            "content": "The request has been sent and your interview has been generated. Thank you for your call! Goodbye!",
-            "role": "assistant",
-            "endCallAfterSpokenEnabled": true
-          },
-          {
-            "type": "request-failed",
-            "content": "Uh oh! Looks like something went wrong while trying to send the data to the app! Please try again later!",
-            "endCallAfterSpokenEnabled": true
-          }
-        ],
-        "name": "getUserData",
         "url": "https://codefriend-voiceagent.vercel.app/api/vapi/generate",
-        "method": "POST",
         "body": {
           "type": "object",
           "required": [],
@@ -136,14 +106,14 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
               "description": ""
             },
             "type": {
-              "type": "string",
-              "value": "",
-              "description": "",
               "enum": [
                 "behavioural",
                 "technical",
                 "mixed"
-              ]
+              ],
+              "type": "string",
+              "value": "",
+              "description": ""
             },
             "level": {
               "type": "string",
@@ -167,6 +137,36 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
             }
           }
         },
+        "name": "getUserData",
+        "type": "apiRequest",
+        "method": "POST",
+        "function": {
+          "name": "api_request_tool",
+          "parameters": {
+            "type": "object",
+            "required": [],
+            "properties": {}
+          },
+          "description": "API request tool"
+        },
+        "messages": [
+          {
+            "type": "request-start",
+            "content": "Please hold on. A request is being sent to the app.",
+            "blocking": true
+          },
+          {
+            "role": "assistant",
+            "type": "request-complete",
+            "content": "The request has been sent and your interview has been generated. Thank you for your call! Goodbye!",
+            "endCallAfterSpokenEnabled": true
+          },
+          {
+            "type": "request-failed",
+            "content": "Uh oh! Looks like something went wrong while trying to send the data to the app! Please try again later!",
+            "endCallAfterSpokenEnabled": true
+          }
+        ],
         "variableExtractionPlan": {
           "schema": {
             "type": "object",
@@ -241,7 +241,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         ]
       },
       "messagePlan": {
-        "firstMessage": "Next question, what level of job experience do you want to be tested on? For example: entry level, junior, senior, etc"
+        "firstMessage": ""
       },
       "toolIds": []
     },
@@ -266,7 +266,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         ]
       },
       "messagePlan": {
-        "firstMessage": "What is the techstack you would like to be interviewed about? Tell me the names of these libraries and frameworks."
+        "firstMessage": ""
       },
       "toolIds": []
     },
@@ -279,7 +279,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
           "y": 761.278473695039
         }
       },
-      "prompt": "Ask the user the type of interview they want (behavioural, technical, or mixed) . These are the only options, so when you ask this questions ask it in a way where you make it clear to the user that these are the 3 possible answers.",
+      "prompt": "Ask the user the type of interview they want.\nThe possible answers are behavioural, technical, or mixed.",
       "variableExtractionPlan": {
         "output": [
           {
@@ -295,7 +295,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         ]
       },
       "messagePlan": {
-        "firstMessage": "What type of interview are you practicing for?"
+        "firstMessage": ""
       },
       "toolIds": []
     },
@@ -320,7 +320,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         ]
       },
       "messagePlan": {
-        "firstMessage": "How many questions would you like in this mock interview?"
+        "firstMessage": ""
       },
       "toolIds": []
     },
@@ -345,7 +345,7 @@ export const interviewGenerationWorkflow = (userName: string, userId: string) =>
         ]
       },
       "messagePlan": {
-        "firstMessage": "What role are you interviewing for? For example, frontend, backend, fullstack, mobile, devops, cloud, embedded, quality assurance, artificial intelligence, video game, etc."
+        "firstMessage": ""
       },
       "toolIds": []
     }
