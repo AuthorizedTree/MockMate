@@ -3,6 +3,7 @@
 import { db, auth } from "@/firebase/admin";
 import { CollectionReference } from "firebase-admin/firestore";
 import { cookies } from "next/headers";
+import { redirect } from 'next/navigation'
 
 const ONE_WEEK = 60 * 60 * 24 * 7;
 
@@ -119,4 +120,10 @@ export async function isAuthenticated() {
     const user = await getCurrentUser();
 
     return !!user; // convert the user into a boolean true using two nots (first one typecasts to boolean value, second changes back to truthy)
+}
+
+export async function signOut() {
+    const cookieStore = cookies();
+    (await cookieStore).delete('session');
+    redirect('/sign-in');
 }
