@@ -2,12 +2,13 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { cn, getTechLogos } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { vapi } from '@/lib/vapi.sdk';
 import { interviewer } from "@/constants";
 import { createFeedback } from '@/lib/actions/general.action';
+import { interviewGenerationWorkflow } from '@/lib/vapi.workflow'; // unnecessary as of right now, but just kept
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -90,33 +91,34 @@ const Agent = ( { userName, userId, type, interviewId, questions }: AgentProps )
 
     const handleCall = async () => {
         setCallStatus(CallStatus.CONNECTING);
-
-        if (type === 'generate') {
-            await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
-                variableValues: {
-                    username: userName,
-                    userid: userId,
-                },
-                clientMessages: [],
-                serverMessages: []
-            })
-        } else {
-            let formattedQuestions = '';
-
-            if (questions) {
-                formattedQuestions = questions
-                    .map((question) => `- ${question}`)
-                    .join('\n');
+        if (type === "generate") {
+          await vapi.start(
+            undefined,
+            undefined,
+            undefined,
+            process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!,
+            {
+              variableValues: {
+                username: userName,
+                userid: userId,
+              },
             }
-
-            await vapi.start(interviewer, {
-                variableValues: {
-                    questions: formattedQuestions,
-                },
-                clientMessages: [],
-                serverMessages: []
-            })
+          );
+        } else {
+          let formattedQuestions = "";
+          if (questions) {
+            formattedQuestions = questions
+              .map((question) => `- ${question}`)
+              .join("\n");
+          }
+    
+          await vapi.start(interviewer, {
+            variableValues: {
+              questions: formattedQuestions,
+            },
+          });
         }
+
     }
 
     const handleDisconnect = async () => {
