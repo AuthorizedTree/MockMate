@@ -1,11 +1,10 @@
 # Code-Friend - AI Powered Mock Interview Application
+CodeFriend is a full-stack, AI-powered, voice-enabled interview preparation platform designed to help users simulate real interview scenarios and receive tailored feedback instantly.
 
 **🌐Live Website:** [codefriend-voiceagent.vercel.app](codefriend-voiceagent.vercel.app/sign-in)
 
 ## 📬 Contact
-Have feedback or suggestions? Reach out via LinkedIn(https://www.linkedin.com/in/kerry-xiao/) or open an issue on this repository.
-
-CodeFriend is a full-stack, AI-powered, voice-enabled interview preparation platform designed to help users simulate real interview scenarios and receive tailored feedback instantly.
+Have feedback or suggestions? Reach out via [LinkedIn](https://www.linkedin.com/in/kerry-xiao/) or open an issue on this repository.
 
 ## 🚀 Features
 
