@@ -103,7 +103,7 @@ const AuthForm = ( { type }: { type: FormType } ) => {
                     />
                     <h2 className="text-primary-100">CodeFriend</h2>
                 </div>
-                <h3>Practice job interviews with this AI tool</h3>
+                <h3 className="flex justify-center">Practice Job Interviews with this AI Tool</h3>
                   
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
