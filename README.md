@@ -4,7 +4,7 @@ CodeFriend is a full-stack, AI-powered, voice-enabled interview preparation plat
 **🌐Live Website:** [codefriend-voiceagent.vercel.app](codefriend-voiceagent.vercel.app/sign-in)
 
 ## 📬 Contact
-Have feedback or suggestions? Reach out via [LinkedIn](https://www.linkedin.com/in/kerry-xiao/) or open an issue on this repository.
+Have feedback or suggestions? Reach out via [LinkedIn](https://www.linkedin.com/in/kerry-xiao/) or open an [issue](https://github.com/AuthorizedTree/codefriend-voiceagent/issues) on this repository.
 
 ## 🚀 Features
 

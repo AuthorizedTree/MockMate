@@ -17,7 +17,7 @@ const RootLayout = async ( { children }: { children: ReactNode}) => {
                 <div className="flex justify-between items-center max-w-7xl mx-auto">
                     <Link href="/" className="flex items-center gap-2">
                         <Image src="/logo.png" alt="Logo" width={38} height={32} />
-                        <h2 className="text-primary-100">CodeFriend</h2>
+                        <h2 className="text-primary-100">MockMate</h2>
                     </Link>
                     <form action={signOut}>
                         <button className="px-4 py-2 bg-red-600 text-white font-bold rounded-md shadow-lg hover:bg-red-700 hover:scale-105 hover:shadow-xl transition duration-300">

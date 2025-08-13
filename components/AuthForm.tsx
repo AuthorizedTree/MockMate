@@ -101,7 +101,7 @@ const AuthForm = ( { type }: { type: FormType } ) => {
                         height={32} 
                         width={38}
                     />
-                    <h2 className="text-primary-100">CodeFriend</h2>
+                    <h2 className="text-primary-100">MockMate</h2>
                 </div>
                 <h3 className="flex justify-center">Practice Job Interviews with this AI Tool</h3>
                   
