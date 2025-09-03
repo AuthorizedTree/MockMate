@@ -1,7 +1,7 @@
 # MockMate - AI Powered Mock Interview Application
 MockMate is a full-stack, AI-powered, voice-enabled interview preparation platform designed to help users simulate real interview scenarios and receive tailored feedback instantly.
 
-**🌐Live Website:** [mockmate-voiceagent.vercel.app](mockmate-voiceagent.vercel.app/sign-in)
+**🌐Live Website:** [mockmate-voiceagent.vercel.app](https://mockmate-voiceagent.vercel.app/sign-in)
 
 ## 📬 Contact
 Have feedback or suggestions? Reach out via [LinkedIn](https://www.linkedin.com/in/kerry-xiao/) or open an [issue](https://github.com/AuthorizedTree/codefriend-voiceagent/issues) on this repository.
